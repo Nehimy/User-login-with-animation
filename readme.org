@@ -1,0 +1,11 @@
+#+title:  Login animate
+#+author: Ney
+#+date:   2024-05-10
+
+En este login hice una animación donde el borde que tiene un movimiento circular por decirlo de alguna forma.
+Para que la animación funcione depende de varias animaciones pequeñas para cada lado del borde; pero que a la vez se ejecutan una despues de la otra.
+
+#+CAPTION: This is the caption for the next figure link (or table)
+#+NAME:   Imagen de el login
+
+[[https://i.imgur.com/9temuo4.png]]

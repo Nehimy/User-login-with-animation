@@ -173,7 +173,8 @@ label {
 
 .input-generic input:focus {
     border-bottom: 1px solid transparent;
-    border-image: linear-gradient(0.45turn, var(--color-sky-blue), var(--color-sky-blue));
+    border-image: linear-gradient(0.45turn, var(--color-sky-blue),
+                   var(--color-sky-blue));
     border-image-slice: 100%;
     border-image-slice: 100%;
     border-image-slice: 1;
@@ -192,7 +193,8 @@ h2, .img-icon-user, .img-icon-lock, .text, .password, .button_box {
     color: var(--white-color);
     padding-bottom: 5px;
     border-bottom: 1px solid transparent;
-    border-image: linear-gradient(0.45turn, var(--color-sky-blue), var(--color-electric-blue));
+    border-image: linear-gradient(0.45turn, var(--color-sky-blue),
+                  var(--color-electric-blue));
     border-image-slice: 100%;
     border-image-slice: 1;
 }
