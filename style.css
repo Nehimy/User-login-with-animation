@@ -2,10 +2,283 @@
    El valor border-box en el box-sizing hace que el padding y el border pasen a formar parte
    del cálculo del ancho de la caja.
  */
-
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+:root {
+    --white-color: #fff;
+    --color-light-gray: #efeff2;
+    --color-bluish-gray: #6c7391;
+    --color-light-blue: #007cff;
+    --color-sky-blue: #00b7ff;
+    --color-blue-generic:#1336bb;
+    --color-electric-blue:#0f12b7;
+    --background-blue: #040f39;
+    --box-shadow: #0009;
 }
 
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    place-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: var(--color-light-gray);
+}
+
+.form-box {
+    display: grid;
+    place-content: center;
+    position: relative;
+    width: 360px;
+    height: 360px;
+    border-radius: 5px;
+    background: var(--background-blue);
+    box-shadow: 0 0px 20px var(--box-shadow);
+    border-top: 1px solid var(--color-light-blue);
+    border-right: 1px solid var(--color-light-blue);
+    border-bottom: 1px solid var(--color-light-blue);
+    border-left: 1px solid var(--color-light-blue);
+}
+
+form {
+    height: 300px;
+    width: 300px;
+    display: grid;
+    gap: 15px;
+    place-content: center;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    font-family: "Product Sans",Arial,sans-serif;
+    background: var(--background-blue);
+    color: var(--white-color);
+
+}
+
+span {
+  position: absolute;
+  border-radius: 5px;
+}
+
+.top {
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 7px;
+    background: linear-gradient(
+        90deg, transparent 50%, var(--color-light-blue),
+        var(--color-light-blue));
+    animation: animate-top 18s ease-in-out infinite;
+}
+
+.right {
+    top: 0;
+    right: 0;
+    width: 7px;
+    height: 0;
+    background: linear-gradient(
+        180deg, transparent 30%,
+        var(--color-light-blue), var(--color-light-blue)
+    );
+    animation: animate-right 18s ease-in-out infinite;
+}
+
+.bottom {
+    right: 0;
+    bottom: 0;
+    height: 7px;
+    background: linear-gradient(
+        90deg, var(--color-light-blue),
+        var(--color-light-blue),transparent 50%
+    );
+    animation: animate-bottom 18s ease-in-out infinite;
+}
+
+.left {
+    left: 0;
+    bottom: 0;
+    width: 7px;
+    height: 0;
+    background: linear-gradient(
+        180deg, var(--color-light-blue),
+        var(--color-light-blue),transparent 50%
+    );
+    animation: animate-left 18s ease-in-out infinite;
+}
+
+.img-icon-user, .img-icon-lock {
+    width:15px;
+}
+
+h2 {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+    text-align: center;
+    margin: 16px 0px;
+}
+
+.img-icon-user {
+    grid-row: 2;
+    grid-column: 1;
+    padding: 10px 0px;
+}
+
+.img-icon-lock {
+    grid-row:3;
+    grid-column: 1;
+    padding: 10px 0px;
+}
+
+.img-icon-user, .img-icon-lock {
+  margin: 15px 5px !important;
+}
+
+.input-text {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.input-password {
+    grid-row: 3;
+    grid-column: 2;
+}
+
+.input-text, .input-password {
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    place-content: center;
+}
+
+label {
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    align-content: center;
+}
+
+.input-generic input:placeholder-shown + label {
+    padding: 10px;
+    transform: none;
+    color: var(--white-color) !important;
+}
+
+.input-generic input + label, .input-generic input:focus + label {
+    transform: translateY(-25px);
+    transition: all 0.3s ease-in;
+    color: var(--color-bluish-gray) !important;
+}
+
+.input-generic input:focus {
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(0.45turn, var(--color-sky-blue), var(--color-sky-blue));
+    border-image-slice: 100%;
+    border-image-slice: 100%;
+    border-image-slice: 1;
+}
+
+h2, .img-icon-user, .img-icon-lock, .text, .password, .button_box {
+    margin: 15px 0px;
+}
+
+.text, .password {
+    border: none;
+    background: transparent;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 1;
+    color: var(--white-color);
+    padding-bottom: 5px;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(0.45turn, var(--color-sky-blue), var(--color-electric-blue));
+    border-image-slice: 100%;
+    border-image-slice: 1;
+}
+
+.button_box {
+    grid-row: 4;
+    grid-column: 1 / span 2;
+    display: grid;
+    place-content: center;
+}
+
+.button-blue {
+    text-transform: uppercase;
+    padding: 8px 15px;
+    background: var(--color-light-blue);
+    color: var(--white-color);
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+    letter-spacing: 1px;
+}
+
+.button-blue:hover {
+    background: var(--color-blue-generic);
+    letter-spacing: 0px;
+    transition: 0.3s;
+}
+
+input:focus-visible {
+    outline: none;
+}
+
+@keyframes animate-top {
+
+    12.5% {
+        opacity: 1;
+        width: 0px;
+    }
+    25% {
+        opacity: 0;
+        width: 100%;
+    }
+    26%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes animate-right {
+  37% {
+    opacity: 1;
+    height: 0px;
+  }
+  49% {
+    opacity: 0;
+    height: 100%;
+  }
+  50%,100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animate-bottom {
+  61% {
+    opacity: 1;
+    width: 0px;
+  }
+  73.5% {
+    opacity: 0;
+    width: 100%;
+  }
+  74%,100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animate-left {
+    85% {
+        opacity: 1;
+        height: 0px;
+    }
+    97.5% {
+        opacity: 0;
+        height: 100%;
+    }
+    100% {
+        opacity: 0;
+        height: 100%;
+    }
+}
